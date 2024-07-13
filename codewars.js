@@ -565,3 +565,49 @@ console.log()
 
 // Explanation:
 // The colorOf function converts the color values to a hexadecimal color code. It takes three parameters: r, g, and b, representing red, green, and blue. I converted each component to a hexadecimal string using the toString(16) function. Then I used an if statement to test if any of these strings were only one character long, if they were, I padded them with a zero in front to ensure they are two characters long. At the end I concatenated the hexadecimal strings with a "#" prefix and returned the function.
+
+
+
+
+// Training JS #15: Methods of Number object--toFixed(), toExponential() and toPrecision()
+// Task
+// Coding in function howManySmaller, function accept 2 parameter:arr and n. arr is a decimal array. n is a decimal.
+
+// The first mission: let all elements in the array keep two decimal places(No need to convert number n).
+
+// The second mission: Traversal arr, count the number of the element which smaller than n and return it.
+
+// for example:
+// howManySmaller([1.234,1.235,1.228],1.24) should return 2
+// howManySmaller([1.1888,1.1868,1.1838],1.19) should return 1
+// howManySmaller([3.1288,3.1212,3.1205],3.1212) should return 2
+
+
+// My Solution: 
+function howManySmaller(arr, n) {
+
+  // Initialize a counter to count how many numbers are smaller than n
+    let counter = 0;  
+  
+  // Iterate over each element in the array
+    for (let i = 0; i < arr.length; i++) {
+  
+  // Convert the current element to a string with 2 decimal places, then back to a number, and compare it with n
+      if (Number(arr[i].toFixed(2)) < n) {
+  
+  // Increment the counter if the condition is true
+        counter = counter + 1;  
+      }
+    }
+  
+  // Return the total count of numbers smaller than n
+    return counter;  
+  };
+
+
+
+  // Explanation:
+  // My howManySmaller function counts how many numbers in an array are smaller than a given number "n", and after rounding them to two decimal places. I initialize a counter in the beginning and then iterate over each element in the array, rounding each element to two decimal places using toFixed(2). If the rounded number is smaller than "n", the counter is incremented. Lastly, the function returns the total count. 
+
+  
+// Solution #2:
