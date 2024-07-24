@@ -609,5 +609,95 @@ function howManySmaller(arr, n) {
   // Explanation:
   // My howManySmaller function counts how many numbers in an array are smaller than a given number "n", and after rounding them to two decimal places. I initialize a counter in the beginning and then iterate over each element in the array, rounding each element to two decimal places using toFixed(2). If the rounded number is smaller than "n", the counter is incremented. Lastly, the function returns the total count. 
 
-  
+
 // Solution #2:
+
+
+
+
+// Training JS #16: Methods of String object--slice(), substring() and substr()
+// Task
+// Coding in function cutIt, function accept 1 parameter:arr. arr is a string array.
+
+// The first mission: Traversing arr, find the shortest string length.
+
+// The second mission: Traversing arr again, intercept all strings to the shortest string length(Start from index0). you can use one of slice() substring() or substr() to do it. return the result after finished the work.
+
+// for example:
+
+// cutIt(["ab","cde","fgh"]) should return ["ab","cd","fg"]
+// cutIt(["abc","defgh","ijklmn"]) should return ["abc","def","ijk"]
+// cutIt(["codewars","javascript","java"]) should return ["code","java","java"]
+
+// Solution w/ comments:
+
+function cutIt(arr){
+
+// Variable shortStr to store the length of the shortest string.
+    let shortStr;  
+    
+// Variable result set equal to an empty array to store the result.
+    let result = []; 
+  
+// Iterate through the array to find the shortest string length using a for loop.
+    for (let i = 0; i < arr.length; i++){
+  
+// If shortStr is undefined or the current string length is shorter, sets that current string length equal to shortStr.
+      if (shortStr === undefined || shortStr > arr[i].length) {
+            shortStr = arr[i].length;
+      }
+      console.log(shortStr);  
+    }
+  
+// Loop through the array again to slice each string to the length of the shortest string.
+    for (i = 0; i < arr.length; i++){
+      
+// Slice the string and push to the result array.
+      result.push(arr[i].slice(0, shortStr));  
+    }
+    
+// Return the result array
+    return result;
+  };
+
+  console.log(cutIt(["hi", "hey", "hello"]))
+
+
+// Explanation:
+// My cutIt function takes an array of strings and returns a new array with only the shortest string from the original array. I first determined the length of the shortest string by iterating through the array using a for loop. Then, I iterate through the array again, slicing each string to the shortest length and storing the result in a new array. Finally, it returns the new array.
+
+
+
+
+// Training JS #17: Methods of String object--slice(), substring() and substr()
+// Task
+// Coding in function firstToLast, function accept 2 parameters:str and c. str is a string. c is a char.
+
+// Please return the gap between the first position of c and the last position of c.
+
+// If there are a lot of c in the str, should return a positive integer; If there is only one c in str, should return 0; If there is no c in the str, should return -1. Retrieval should not ignored the case.
+
+// for example:
+
+// firstToLast("ababc","a") should return 2(2-0)
+// firstToLast("ababc","c") should return 0(4-4)
+// // firstToLast("ababc","d") should return -1
+
+
+// Solution w/ comments:
+function firstToLast(str, c) {
+
+// Find the first occurrence index of the character c in the string str
+  let firstIndex = str.indexOf(c);
+
+// Find the last occurrence index of the character c in the string str
+  let lastIndex = str.lastIndexOf(c);
+
+// If the character c is not found in the string (firstIndex is -1), return -1
+  if (firstIndex === -1) {
+    return -1;
+  }
+
+// If the character c is found, calculate and return the difference between lastIndex and firstIndex
+  return lastIndex - firstIndex;
+};
