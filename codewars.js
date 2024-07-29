@@ -724,20 +724,27 @@ console.log(firstToLast("abca", "a"))
 // splitAndMerge("Hello World!", ",")     ==  "H,e,l,l,o W,o,r,l,d,!"
 
 // Solution:
-function splitAndMerge(string, seperator) {
+function splitAndMerge(string, separator) {
+// Split the input string into an array of words
   let words = string.split(' ');
+// Initialize an array to hold the transformed words
   let mergedWords = [];
-  
+
+// Iterate over each word in the array
   for (let i = 0; i < words.length; i++) {
-    let mergedWord = words[i].split('').join(seperator);
-    
+ // Split each word into characters and join them with the separator
+    let mergedWord = words[i].split('').join(separator);
+ // Push the transformed word to the mergedWords array
     mergedWords.push(mergedWord);
   }
-  
+
+// Join the transformed words back into a single string with spaces in between
   return mergedWords.join(' ');
 }
 
-console.log("this is a test", "*")
+
+console.log(splitAndMerge("this is a test", "*"));
+
 
 // Explanation:
 // The splitAndMerge function splits a given string into individual words, then splits each word into characters and joins them back together with a specified separator. The transformed words are then joined back into a single string with spaces. This solution uses a for loop to iterate over the words and achieve the transformation
