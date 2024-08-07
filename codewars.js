@@ -768,3 +768,105 @@ console.log(splitAndMerge("this is a test", "*"));
 // A small hint: The first conversion of the entire string will make the code easier
 
 // Solution:
+function alienLanguage(str){
+// Splits the input string into an array of words
+  let words = str.split(" ");
+
+// Initializes an array to hold the transformed words
+  let alienWords = [];
+
+// Iterates over each word in the array
+  for (let i = 0; i < words.length; i++){
+
+// Gets the current word
+    let word = words[i];
+
+// Converts all characters to uppercase except the last character
+    let alienWord = word.slice(0, -1).toUpperCase() + word.slice(-1).toLowerCase();
+
+// Pushes the transformed word to the transformedWords array
+    alienWords.push(alienWord)
+
+  }
+// Joins the transformed words back into a single string with spaces in between
+  return alienWords.join(" ")
+}
+
+console.log(alienLanguage("hello world this is a test"));
+
+
+// Explanation:
+// The alienLanguage function converts a string so that each word has all characters in uppercase except the last one, which is in lowercase. It first splits the input string into an array of words. Using a for loop, it iterates through each word, transforming it by slicing off the last character, converting the rest to uppercase, and the last character to lowercase. The transformed words are stored in the alienWords array, which is then joined back into a single string with spaces between words.
+
+
+
+// Training JS #20: Methods of String object--charAt() charCodeAt() and fromCharCode()
+//Task
+//Coding in function topSecret, function accept 1 parameter:file. file is an encrypted string.
+
+// Encryption using the right shift 3. Your job is to decrypt the file and read the contents of the file, and then answer my three questions. If the answer is correct, you will pass the test. Note: the decryption should be left shift; Shift is only for uppercase and lowercase letters, other characters will remain the same; The shift mode is a cyclic shift;
+
+// For example:
+
+// character "A" after decryption should be "X" instead of ">"
+// character "B" after decryption should be "Y" instead of "?"
+// character "C" after decryption should be "Z" instead of "@"
+// character "a" after decryption should be "x" instead of "^"
+// character "b" after decryption should be "y" instead of "_"
+// character "c" after decryption should be "z" instead of "`"
+
+// Solution:
+
+
+
+
+// Training JS #21: Methods of String object--trim() and the string template
+// Task
+// Coding in function fiveLine, function accept 1 parameter:s. s is a string.
+
+// Please return a string of 5 lines(newline symbol is \n). The first line has one s; Second line have two s; and so on..Fifth line have five s;
+
+// Note1: The two sides of the parameter s may contain some whitespace, please clear them before using s.
+
+// Note2: Using a string template can make your job easier.
+
+// Example:
+
+// fiveLine("  a") should return "a\naa\naaa\naaaa\naaaaa"
+// a
+// aa
+// aaa
+// aaaa
+// aaaaa       <---The effect when you console.log it
+// fiveLine("  xy ") 
+// should return "xy\nxyxy\nxyxyxy\nxyxyxyxy\nxyxyxyxyxy"
+// xy
+// xyxy
+// xyxyxy
+// xyxyxyxy
+// xyxyxyxyxy  <---The effect when you console.log it
+
+
+// Solution:
+function fiveLine(s) {
+// Remove whitespace from the edges of the string
+  s = s.trim(); 
+// Initialize an empty string to store the result
+  let result = ''; 
+  for (let i = 1; i <= 5; i++) { 
+    result += s.repeat(i);
+    if (i < 5) {
+// Add a newline character except after the last line
+      result += '\n'; 
+    }
+  }
+// Return the result string
+  return result;
+}
+
+
+console.log(fiveLine("  a"));
+console.log(fiveLine("  xy "));
+
+// Explanation: 
+// The fiveLine function takes a string s as input and returns a formatted string consisting of 5 lines. Each line contains the trimmed input string repeated a certain number of times, starting from 1 repetition on the first line and increasing to 5 repetitions on the fifth line.

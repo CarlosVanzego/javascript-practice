@@ -11,4 +11,4 @@ function splitAndMerge(string, seperator) {
   return mergedWords.join(' ');
 }
 
-console.log(splitAndMerge("this is a test", "*"))
+console.log(splitAndMerge("this     is     a     test", "*"))
