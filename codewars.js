@@ -816,6 +816,47 @@ console.log(alienLanguage("hello world this is a test"));
 // character "c" after decryption should be "z" instead of "`"
 
 // Solution:
+function topSecret(str) {
+
+// Initialize an empty string to store the decrypted message
+  let decryptedMessage = ''; 
+// Iterate over each character in the encrypted string
+  for (let i = 0; i < str.length; i++){
+// Get the current character
+    let char = str[i];
+// Get the ASCII code of the current character
+    let charCode = str.charCodeAt(i);
+// Check if the character is an uppercase letter
+    if(charCode >= 'A' && char <= 'Z'){
+// Shift the character 3 positions left in the alphabet
+      charCode = charCode - 3;
+// If the character code goes below 'A', wrap around to 'Z'
+      if(charCode < 65) charCode += 26;
+    }
+// Check if the character is a lowercase letter
+      else if(char >= 'a' && char <= 'z'){
+// Shift the character 3 positions left in the alphabet
+        charCode = charCode - 3;
+// If the character code goes below 'a', wrap around to 'z'
+        if(charCode < 97) charCode += 26;
+      }
+// Convert back to character
+      char = string.fromCharCode(charCode);
+// Append the decrypted character to the message
+      decryptedMessage += char;
+  }
+// Return the decrypted message
+  return decryptedMessage; 
+}
+
+// Explanation:
+// The topSecret function decrypts an encrypted string by shifting each character left by 3 positions in the alphabet. It initializes an empty string decryptedMessage to store the result. For each character in the input string str, it checks if the character is an uppercase or lowercase letter. If the character is between 'A' and 'Z', it subtracts 3 from its ASCII code, and if the resulting code is less than 'A' (65), it wraps around by adding 26 to the ASCII code. Similarly, for lowercase letters, if the character is between 'a' and 'z', it subtracts 3 from its ASCII code, and if the resulting code is less than 'a' (97), it wraps around by adding 26 to the ASCII code. Non-letter characters remain unchanged and are directly appended to decryptedMessage. The transformed characters are appended to decryptedMessage, which is returned at the end.
+
+// Notes - 
+// if (charCode < 65) charCode += 26;: This line checks if the character code (after shifting left by 3) is less than the ASCII value for 'A' (which is 65). If it is, the code wraps around by adding 26 (the number of letters in the alphabet) to the character code, bringing it back into the range of uppercase letters.
+
+// if (charCode < 97) charCode += 26;: Similarly, this line checks if the character code (after shifting left by 3) is less than the ASCII value for 'a' (which is 97). If it is, the code wraps around by adding 26 to bring it back into the range of lowercase letters.
+
 
 
 
@@ -851,11 +892,17 @@ console.log(alienLanguage("hello world this is a test"));
 function fiveLine(s) {
 // Remove whitespace from the edges of the string
   s = s.trim(); 
-// Initialize an empty string to store the result
+
+  // Initialize an empty string to store the result
   let result = ''; 
+
+// Loop from 1 to 5
   for (let i = 1; i <= 5; i++) { 
+
+// Append the string 's' repeated 'i' times to the result
     result += s.repeat(i);
     if (i < 5) {
+
 // Add a newline character except after the last line
       result += '\n'; 
     }
