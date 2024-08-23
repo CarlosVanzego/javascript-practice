@@ -1017,3 +1017,7 @@ function infiniteLoop(arr,d,n){
   }
   return arr;
 }
+
+
+// Solution #3:
+
