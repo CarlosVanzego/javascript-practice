@@ -821,27 +821,23 @@ function topSecret(str) {
 // Initialize an empty string to store the decrypted message
   let decryptedMessage = ''; 
 // Iterate over each character in the encrypted string
-  for (let i = 0; i < str.length; i++){
+for (let i = 0; i < str.length; i++){
 // Get the current character
-    let char = str[i];
+let char = str[i];
 // Get the ASCII code of the current character
-    let charCode = str.charCodeAt(i);
+let charCode = str[i].charCodeAt();
 // Check if the character is an uppercase letter
-    if(charCode >= 'A' && char <= 'Z'){
+    if(char >= 'A' && char <= 'Z'){
 // Shift the character 3 positions left in the alphabet
-      charCode = charCode - 3;
-// If the character code goes below 'A', wrap around to 'Z'
-      if(charCode < 65) charCode += 26;
-    }
+    charCode = str[i].charCodeAt() - 3;
+}
 // Check if the character is a lowercase letter
-      else if(char >= 'a' && char <= 'z'){
+    else if(char >= 'a' && char <= 'z'){
 // Shift the character 3 positions left in the alphabet
-        charCode = charCode - 3;
-// If the character code goes below 'a', wrap around to 'z'
-        if(charCode < 97) charCode += 26;
-      }
+      charCode = str[i].charCodeAt() - 3;
+}
 // Convert back to character
-      char = string.fromCharCode(charCode);
+    let newChar = String.fromCharCode(charCode);
 // Append the decrypted character to the message
       decryptedMessage += char;
   }
@@ -852,10 +848,6 @@ function topSecret(str) {
 // Explanation:
 // The topSecret function decrypts an encrypted string by shifting each character left by 3 positions in the alphabet. It initializes an empty string decryptedMessage to store the result. For each character in the input string str, it checks if the character is an uppercase or lowercase letter. If the character is between 'A' and 'Z', it subtracts 3 from its ASCII code, and if the resulting code is less than 'A' (65), it wraps around by adding 26 to the ASCII code. Similarly, for lowercase letters, if the character is between 'a' and 'z', it subtracts 3 from its ASCII code, and if the resulting code is less than 'a' (97), it wraps around by adding 26 to the ASCII code. Non-letter characters remain unchanged and are directly appended to decryptedMessage. The transformed characters are appended to decryptedMessage, which is returned at the end.
 
-// Notes - 
-// if (charCode < 65) charCode += 26;: This line checks if the character code (after shifting left by 3) is less than the ASCII value for 'A' (which is 65). If it is, the code wraps around by adding 26 (the number of letters in the alphabet) to the character code, bringing it back into the range of uppercase letters.
-
-// if (charCode < 97) charCode += 26;: Similarly, this line checks if the character code (after shifting left by 3) is less than the ASCII value for 'a' (which is 97). If it is, the code wraps around by adding 26 to bring it back into the range of lowercase letters.
 
 
 
@@ -890,26 +882,29 @@ function topSecret(str) {
 
 // Solution:
 function fiveLine(s) {
-// Remove whitespace from the edges of the string
-  s = s.trim(); 
-
-  // Initialize an empty string to store the result
-  let result = ''; 
-
-// Loop from 1 to 5
-  for (let i = 1; i <= 5; i++) { 
-
-// Append the string 's' repeated 'i' times to the result
-    result += s.repeat(i);
-    if (i < 5) {
-
-// Add a newline character except after the last line
-      result += '\n'; 
+  // Remove whitespace from the edges of the string
+    s = s.trim(); 
+  
+    // Initialize an empty string to store the result
+    let result = ''; 
+  
+  // Loop from 1 to 5
+    for (let i = 1; i <= 5; i++) { 
+  
+  // Append the string 's' repeated 'i' times to the result
+    for (let p = 0; p < i; p++){
+        result += s
+     }
+      
+      if (i < 5) {
+  
+  // Add a newline character except after the last line
+        result += '\n'; 
+      }
     }
+  // Return the result string
+    return result
   }
-// Return the result string
-  return result;
-}
 
 
 console.log(fiveLine("  a"));
@@ -917,3 +912,108 @@ console.log(fiveLine("  xy "));
 
 // Explanation: 
 // The fiveLine function takes a string s as input and returns a formatted string consisting of 5 lines. Each line contains the trimmed input string repeated a certain number of times, starting from 1 repetition on the first line and increasing to 5 repetitions on the fifth line.
+
+
+
+// Training JS #22: Unlock new skills--Arrow function,spread operator and deconstruction
+// Task
+// Create a function shuffleIt. The function accepts two or more parameters. The first parameter arr is an array of numbers, followed by an arbitrary number of numeric arrays. Each numeric array contains two numbers, which are indices for elements in arr (the numbers will always be within bounds). For every such array, swap the elements. Try to use all your new skills: arrow functions, the spread operator, destructuring, and rest parameters.
+
+// Example:
+
+// shuffleIt([1,2,3,4,5],[1,2]) should return [1,3,2,4,5]
+// shuffleIt([1,2,3,4,5],[1,2],[3,4]) should return [1,3,2,5,4]
+// shuffleIt([1,2,3,4,5],[1,2],[3,4],[2,3]) should return [1,3,5,2,4]
+
+
+
+// Solution:
+function shuffleIt(arr,...p){
+// Iterate over each pair of indices in the variable-length argument p
+  for(i = 0; i < p.length; i++){
+// Get the first index of the current pair   
+    let a = p[i][0];
+// Get the second index of the current pair  
+    let b = p[i][1];
+// Store the value at index a in a temporary variable  
+    let temp = arr[a];
+// Assign the value stored in index b to index a    
+    arr[a] = arr[b];
+// Assign the value stored in temp to index b     
+    arr[b] = temp;
+  }
+// Returns the modified array  
+  return arr
+}
+
+console.log(shuffleIt())
+
+
+
+
+
+// Training JS #23: methods of arrayObject---push(), pop(), shift() and unshift()
+// Task
+// Coding in function infiniteLoop. function accept 3 parameters. The 1st parameter is arr, it's a 2D array, it contains three 1D array. The 2nd parameter is d ，it's a string. The 3rd parameter is n, it's a number.
+
+// You can think of arr as a moat, the elements of arr like water constantly flow in. The direction of flow is controlled by the parameter d. The value of d can be "left" or "right". "left" means the "river" moves to the left. All elements in the 1D array are to the left moving n position, if beyond the bounds of the array and the element is moved to the tail on the left side of the array; if it exceeds the left boundary element would be moved to the tail of 3rd array(like a circle). Right is also similar to the operation, but it is moving to the right.
+
+// Finally, return arr.
+
+// Examples
+// infiniteLoop( [[1,2,3],[4,5,6],[7,8,9]],"left",1) should return [[2,3,4],[5,6,7],[8,9,1]]
+// infiniteLoop( [[1,2,3],[4,5,6],[7,8,9]],"right",1) should return [[9,1,2],[3,4,5],[6,7,8]]
+// infiniteLoop( [[1,2],[3,4,5,6],[7,8,9,10]],"left",2) should return [[3,4],[5,6,7,8],[9,10,1,2]]
+
+
+// Solution:
+function infiniteLoop(arr, d, n) {
+// Loop to repeat the shifting operation n times
+  for (let i = 1; i <= n; i++) {
+// If statement for if direction is 'left'
+    if (d === 'left') {
+// Move the first element of the first array to the end of the third array    
+      arr[2].push( arr[0].shift())
+// Move the second element of the first array to the end of the first array
+      arr[1].push( arr[2].shift())
+// Move the third element of the first array to the end of the second array
+      arr[0].push( arr[1].shift())
+    }
+
+// If statement for if direction is 'right'    
+    if (d === 'right') {
+// Move the last element of the third array to the beginning of the first array
+      arr[0].unshift( arr[2].pop())
+// Move the last element of the first array to the beginning of the second array
+      arr[1].unshift( arr[0].pop())
+// Move the last element of the second array to the beginning of the third array
+      arr[2].unshift( arr[1].pop())
+    }
+  }
+// Returns the modified array  
+  return arr;
+}
+
+console.log(left)
+
+
+// Solution #2:
+function infiniteLoop(arr,d,n){
+  
+  for (let i = 0; i < n; i++){
+    
+    if (d === 'left') {
+      
+      arr[2].push(arr[0].shift());
+      arr[1].push(arr[2].shift());
+      arr[0].push(arr[1].shift());
+      
+  } else if (d === 'right') {
+    
+      arr[0].unshift(arr[2].pop());
+      arr[1].unshift(arr[0].pop());
+      arr[2].unshift(arr[1].pop());
+    }
+  }
+  return arr;
+}
