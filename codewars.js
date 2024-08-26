@@ -1019,24 +1019,42 @@ console.log(left)
 
 
 // Solution #2:
-function infiniteLoop(arr,d,n){
-  
-  for (let i = 0; i < n; i++){
-    
-    if (d === 'left') {
-      
-      arr[2].push(arr[0].shift());
-      arr[1].push(arr[2].shift());
-      arr[0].push(arr[1].shift());
-      
-  } else if (d === 'right') {
-    
-      arr[0].unshift(arr[2].pop());
-      arr[1].unshift(arr[0].pop());
-      arr[2].unshift(arr[1].pop());
+// 'd' determines the direction ('left' or 'right').
+// 'n' specifies how many times to perform the loop.
+function infiniteLoop(arr, d, n) { 
+
+// Loop 'n' times to shift the elements as specified.
+  for (let i = 0; i < n; i++) { 
+
+// If the direction is 'left':
+    if (d === 'left') { 
+
+// Move the first element from the first array to the end of the third array.
+      arr[2].push(arr[0].shift()); 
+
+// Move the first element from the third array to the end of the second array.
+      arr[1].push(arr[2].shift()); 
+
+// Move the first element from the second array to the end of the first array.
+      arr[0].push(arr[1].shift()); 
+
+// If the direction is 'right':
+    } else if (d === 'right') { 
+
+      arr[0].unshift(arr[2].pop());  // Move the last element from the third array to the beginning of the first array.
+
+
+      arr[1].unshift(arr[0].pop());  // Move the last element from the first array to the beginning of the second array.
+
+
+      arr[2].unshift(arr[1].pop());  // Move the last element from the second array to the beginning of the third array.
+
+
     }
   }
-  return arr;
+
+  return arr; // Return the modified array after 'n' loops.
+
 }
 
 

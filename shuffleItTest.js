@@ -20,7 +20,7 @@
 
 
   function shuffleIt(arr,...c){
-    // Iterate over each pair of indices in the variable-length argument c
+    // Iterate over each pair of indices in c
       for ( i = 0; i < c.length; i++) {
     // Get the first index of the current pair
         let a = c[i][0];
