@@ -1079,3 +1079,18 @@ function infiniteLoop(arr, d, n) {
 // threeInOne( [1,3,5,2,4,6,7,7,7]) should return [9,12,21]
 
 // Solution:
+function threeInOne(arr){
+  
+  let newArr = arr.slice();
+  let result = [];
+
+
+  for (let i = 0;i < arr.length; i++){
+    let sumArr = newArr[0] + newArr[1] + newArr[2];
+    
+      result.push(sumArr);
+    console.log(sumArr)
+  }
+  return result;
+  
+}
