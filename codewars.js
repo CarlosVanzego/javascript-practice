@@ -1015,7 +1015,10 @@ function infiniteLoop(arr, d, n) {
   return arr;
 }
 
-console.log(left)
+console.log(infiniteLoop([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 'left', 1));
+console.log(infiniteLoop([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 'right', 1));
+console.log(infiniteLoop([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 'left', 2));
+console.log(infiniteLoop([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 'right', 2));
 
 
 // Solution #2:
@@ -1094,3 +1097,28 @@ function threeInOne(arr){
   return result;
   
 }
+
+//  Explanation:
+
+
+
+
+
+
+
+
+// Training JS #25: methods of arrayObject---splice() and slice()
+// Task
+// Coding in function sortIt. function accept 1 parameters arr, it's a number array. Your task is to sort the array according to the specified conditions, and returns a new array(should not modify the original array).
+
+// conditions1: according to the number of elements(in ascending order) for example:
+
+// sortIt([1,1,1,2,2,3]) should return [3,2,2,1,1,1]
+// because [1,1,1,2,2,3] has one 3, two 2 and three 1
+// conditions2: If the same number of elements, according to the number values(in descending order) for example:
+
+// sortIt([1,1,1,2,2,2,3,3,3]) should return [3,3,3,2,2,2,1,1,1]
+// because number of 3,2 and 1 both are three, then according to 3>2>1
+// Comprehensive two conditions should be like this:
+
+// sortIt([1,2,3,4,4,5,5,6,6]) should return [3,2,1,6,6,5,5,4,4]
