@@ -22,4 +22,3 @@ function colorOf(r,g,b){
 }
 
 console.log(colorOf(255, 0, 0))
-
