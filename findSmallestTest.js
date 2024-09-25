@@ -1,8 +1,8 @@
 function findSmallest(arr) {
-  let smallest = arr[0];
+  let smallest = arr[0]; // smallest is element at index 0
 
-  for (let i = 0;i < arr.length; i++) {
-    if (arr[i] < smallest) {
+  for (let i = 1;i < arr.length; i++) {
+    if (arr[i] < smallest) { 
        smallest = arr[i];
     }
   }
@@ -10,6 +10,6 @@ function findSmallest(arr) {
   return smallest;
 };
 
-const numbers = [6, 19, 8, 3, 11];
+const numbers = [2, 19, 8, 1, 23];
 console.log(findSmallest(numbers));
 
