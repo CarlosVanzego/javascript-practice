@@ -1014,7 +1014,7 @@ function infiniteLoop(arr, d, n) {
 // Returns the modified array  
   return arr;
 }
-
+ 
 console.log(infiniteLoop([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 'left', 1));
 console.log(infiniteLoop([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 'right', 1));
 console.log(infiniteLoop([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 'left', 2));
