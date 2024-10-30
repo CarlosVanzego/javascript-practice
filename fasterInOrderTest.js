@@ -7,7 +7,7 @@ function fasterInOrder(arr) {
         return false; // If true, array is not in order; return false immediately
       }
     } 
-    return true; // If loop completes, all elements are in order, so return true
+    return true; // If loop completes, all elements are in order, returns true
   }
   
   const arr = [1, 2, 3, 4, 5, 6, 7, 8];
