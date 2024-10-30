@@ -1,3 +1,25 @@
+// First steps:
+// function inOrder(arr){
+//     sorted = [];
+//     for (let i = 0;i < arr.length; i++) {
+//       if (arr[i] < smallest) { 
+//          smallest = arr[i];
+//       }
+//     }
+
+//      for (let i = 0; i < arr.length; i++){
+
+//      }
+// }
+
+
+
+
+
+
+
+
+
 // Solution (Selection sort):
 function inOrder(arr) {
 // Outer loop: iterates over each element of the array  
